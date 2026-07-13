@@ -15,3 +15,14 @@ jobs:
 
       - name: Print Message
         run: echo "Hello DevOps"
+        
+      - name: Show date
+        run: date
+    
+      - name: Show Current Directory
+        run: pwd
+    
+      - name: Show List of Files
+        run: ls -la
+        
+        
