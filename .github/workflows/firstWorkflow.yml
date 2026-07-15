@@ -4,7 +4,9 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-    
+
+env:
+    TOKEN: ${{ secrets.ApiSecret }}
 jobs:
 
   build:
@@ -26,6 +28,10 @@ jobs:
     
       - name: Show List of Files
         run: ls -la
+    
+      - name: Aceess secret
+        run: echo $TOKEN
+    
         
   test:
     
