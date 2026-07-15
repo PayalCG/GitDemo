@@ -28,7 +28,8 @@ jobs:
         run: ls -la
         
   test:
-  
+    
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Run Tests
@@ -36,6 +37,7 @@ jobs:
         
   deploy:
     
+    needs: test
     runs-on: ubuntu-latest
     steps:
         - name: Deploy Application
