@@ -7,6 +7,8 @@ on:
 
 env:
     TOKEN: ${{ secrets.ApiSecret }}
+    APP_NAME: GitDemo
+    ENVIRONMENT: DEV
 jobs:
 
   build:
@@ -31,8 +33,11 @@ jobs:
     
       - name: Aceess secret
         run: echo $TOKEN
-    
-        
+      
+      - name: Show Environment Variables
+        run: |
+            echo "Application Name: $APP_NAME"
+            echo "Environment: $ENVIRONMENT"
   test:
     
     needs: build
