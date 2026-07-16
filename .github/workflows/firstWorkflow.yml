@@ -16,22 +16,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+      
       - uses: actions/checkout@v4
+      
+      - name: create File
+      - run: echo "Dev Ops Training Report" > report.txt
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        
+        with:
+            name: devops-report
+            path: report.txt
+      
+    
 
       - name: Print Message
         run: echo "Hello DevOps"
-        
-      - name: Show date
-        run: date
-    
-      - name: Show Current Directory
-        run: pwd
-    
-      - name: Show List of Files
-        run: ls -la
-    
-      - name: Aceess secret
+
+      - name: Aceess Secret
         run: echo $TOKEN
       
       - name: Show Environment Variables
@@ -43,6 +46,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+            name: devops-report
+      - name: Display File
+        run: cat report.txt
+      
       - name: Run Tests
         run: echo "Running Tests"
         
