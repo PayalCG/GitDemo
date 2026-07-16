@@ -19,7 +19,7 @@ jobs:
       
       - uses: actions/checkout@v4
       
-      - name: create File
+      - name: Create File
       - run: echo "Dev Ops Training Report" > report.txt
       
       - name: Upload Artifact
